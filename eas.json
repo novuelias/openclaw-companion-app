@@ -1,0 +1,47 @@
+{
+  "cli": {
+    "version": ">= 13.0.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      },
+      "android": {
+        "buildType": "debug",
+        "gradleArtifact": "com.openclaw.companionapp-dev-debug.apk"
+      }
+    },
+    "preview": {
+      "developmentClient": false,
+      "distribution": "internal",
+      "ios": {
+        "simulator": false
+      },
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "developmentClient": false,
+      "ios": {
+        "simulator": false,
+        "bundleIdentifier": "com.openclaw.companionapp"
+      },
+      "android": {
+        "buildType": "apk",
+        "gradleArtifact": "com.openclaw.companionapp-release.apk"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./fastlane/play-config.json",
+        "track": "production"
+      }
+    }
+  }
+}
