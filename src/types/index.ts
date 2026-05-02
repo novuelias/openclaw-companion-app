@@ -1,5 +1,4 @@
 // API Types for OpenClaw Companion App
-// Will be expanded once Scout's API spec is ready
 
 export interface DeviceInfo {
   deviceId: string;
@@ -28,4 +27,32 @@ export interface PushSubscription {
     p256dh: string;
     auth: string;
   };
+}
+
+// Gateway connection types
+export interface GatewayCredentials {
+  url: string;
+  token: string;
+  deviceId: string;
+  publicKey: string;
+  privateKey: string;
+}
+
+export interface AgentResult {
+  runId: string;
+  status: 'accepted' | 'completed' | 'failed';
+}
+
+export interface SessionInfo {
+  key: string;
+  label?: string;
+  agentId: string;
+  createdAt: number;
+}
+
+export interface ToolInvokeResult {
+  ok: boolean;
+  toolName: string;
+  output: unknown;
+  requiresApproval: boolean;
 }
